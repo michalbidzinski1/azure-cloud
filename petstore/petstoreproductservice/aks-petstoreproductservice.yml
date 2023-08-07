@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: aks-petstoreproductservice
-        image: mbidzacr.azurecr.io/petstoreproductservice:latest
+        image: mbidzcr.azurecr.io/petstoreproductservice:latest
         ports:
         - containerPort: 80
         env:
