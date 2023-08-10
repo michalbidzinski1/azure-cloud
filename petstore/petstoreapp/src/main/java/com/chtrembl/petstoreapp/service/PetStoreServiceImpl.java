@@ -74,7 +74,6 @@ public class PetStoreServiceImpl implements PetStoreService {
 		try {
 			Consumer<HttpHeaders> consumer = it -> it.addAll(this.webRequest.getHeaders());
 			pets = this.petServiceWebClient.get().uri("petstorepetservice/v2/pet/findByStatus?status=available")
-					.accept(MediaType.APPLICATION_JSON)
 					.headers(consumer)
 					.headers("Accept", "application/json")
 					.headers("Content-Type", "application/json")
