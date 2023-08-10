@@ -77,7 +77,7 @@ public class PetStoreServiceImpl implements PetStoreService {
 			        it.addAll(this.webRequest.getHeaders());
 			        it.setAccept(Collections.singletonList(MediaType.APPLICATION_JSON));
 			        it.setContentType(MediaType.APPLICATION_JSON);
-			}
+			};
 			pets = this.petServiceWebClient.get().uri("petstorepetservice/v2/pet/findByStatus?status=available")
 					.headers(consumer)
 					.header("host", this.containerEnvironment.getPetstoreAPIMHost())
