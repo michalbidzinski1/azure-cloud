@@ -81,6 +81,7 @@ public class PetStoreServiceImpl implements PetStoreService {
 			};
 			pets = this.petServiceWebClient.get().uri("petstorepetservice/v2/pet/findByStatus?status=available")
 					.headers(consumer)
+					.header("Content-Type", "application/json")
 					.header("host", this.containerEnvironment.getPetstoreAPIMHost())
 					.header("session-id", this.sessionUser.getSessionId())
 					.header("Ocp-Apim-Subscription-Key", this.containerEnvironment.getPetStoreServicesSubscriptionKey())
