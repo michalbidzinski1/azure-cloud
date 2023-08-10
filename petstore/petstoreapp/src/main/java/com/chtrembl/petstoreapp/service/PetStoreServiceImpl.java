@@ -72,11 +72,14 @@ public class PetStoreServiceImpl implements PetStoreService {
 						this.sessionUser.getName()),
 				this.sessionUser.getCustomEventProperties(), null);
 		try {
-			Consumer<HttpHeaders> consumer = it -> it.addAll(this.webRequest.getHeaders());
+			//Consumer<HttpHeaders> consumer = it -> it.addAll(this.webRequest.getHeaders());
+			Consumer<HttpHeaders> consumer = it -> {
+			        it.addAll(this.webRequest.getHeaders());
+			        it.setAccept(Collections.singletonList(MediaType.APPLICATION_JSON));
+			        it.setContentType(MediaType.APPLICATION_JSON);
+			}
 			pets = this.petServiceWebClient.get().uri("petstorepetservice/v2/pet/findByStatus?status=available")
 					.headers(consumer)
-					.headers("Accept", "application/json")
-					.headers("Content-Type", "application/json")
 					.header("host", this.containerEnvironment.getPetstoreAPIMHost())
 					.header("session-id", this.sessionUser.getSessionId())
 					.header("Ocp-Apim-Subscription-Key", this.containerEnvironment.getPetStoreServicesSubscriptionKey())
