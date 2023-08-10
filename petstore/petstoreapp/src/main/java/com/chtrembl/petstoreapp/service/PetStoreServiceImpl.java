@@ -78,7 +78,6 @@ public class PetStoreServiceImpl implements PetStoreService {
 					.headers(consumer)
 					.headers("Accept", "application/json")
 					.headers("Content-Type", "application/json")
-					//.header("Content-Type", MediaType.APPLICATION_JSON_VALUE)
 					.header("host", this.containerEnvironment.getPetstoreAPIMHost())
 					.header("session-id", this.sessionUser.getSessionId())
 					.header("Ocp-Apim-Subscription-Key", this.containerEnvironment.getPetStoreServicesSubscriptionKey())
